@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Packages{% endblock %}
+
+{% block content %}
+<h2>Packages</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tracking Number</th>
+            <th>Weight</th>
+            <th>Dimensions</th>
+            <th>Status</th>
+            <th>Arrival Date</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for package in packages %}
+        <tr>
+            <td>{{ package.tracking_number }}</td>
+            <td>{{ package.weight }}</td>
+            <td>{{ package.dimensions }}</td>
+            <td>{{ package.status }}</td>
+            <td>{{ package.arrival_date }}</td>
+            <td>{{ package.user.username }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
