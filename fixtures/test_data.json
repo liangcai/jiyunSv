@@ -1,0 +1,175 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "testuser1",
+      "email": "testuser1@example.com",
+      "password": "pbkdf2_sha256$260000$abcdefghijklmnopqrstuvwxyz123456="
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "testuser2",
+      "email": "testuser2@example.com",
+      "password": "pbkdf2_sha256$260000$zyxwvutsrqponmlkjihgfedcba654321="
+    }
+  },
+  {
+    "model": "logistics.package",
+    "pk": 1,
+    "fields": {
+      "tracking_number": "TRACK123456",
+      "weight": 2.5,
+      "dimensions": "30x20x10",
+      "status": "In Transit",
+      "arrival_date": "2024-09-15T14:30:00Z",
+      "photos": null,
+      "notes": "Handle with care",
+      "user": 1,
+      "warehouse_location": "A1-B2-C3"
+    }
+  },
+  {
+    "model": "logistics.package",
+    "pk": 2,
+    "fields": {
+      "tracking_number": "TRACK789012",
+      "weight": 1.8,
+      "dimensions": "25x15x8",
+      "status": "Delivered",
+      "arrival_date": "2024-09-14T10:00:00Z",
+      "photos": null,
+      "notes": null,
+      "user": 2,
+      "warehouse_location": "D4-E5-F6"
+    }
+  },
+  {
+    "model": "logistics.order",
+    "pk": 1,
+    "fields": {
+      "order_number": "ORD-2024-001",
+      "user": 1,
+      "packages": [1],
+      "shipping_method": "Express",
+      "total_cost": 50.99,
+      "status": "Processing",
+      "created_at": "2024-09-13T09:00:00Z",
+      "updated_at": "2024-09-13T09:00:00Z"
+    }
+  },
+  {
+    "model": "logistics.order",
+    "pk": 2,
+    "fields": {
+      "order_number": "ORD-2024-002",
+      "user": 2,
+      "packages": [2],
+      "shipping_method": "Standard",
+      "total_cost": 35.50,
+      "status": "Shipped",
+      "created_at": "2024-09-12T14:30:00Z",
+      "updated_at": "2024-09-13T10:00:00Z"
+    }
+  },
+  {
+    "model": "logistics.payment",
+    "pk": 1,
+    "fields": {
+      "order": 1,
+      "amount": 50.99,
+      "payment_method": "Credit Card",
+      "payment_date": "2024-09-13T09:15:00Z",
+      "status": "Completed"
+    }
+  },
+  {
+    "model": "logistics.notification",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "message": "Your package has been shipped!",
+      "created_at": "2024-09-13T10:30:00Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "logistics.shippingrate",
+    "pk": 1,
+    "fields": {
+      "weight": 2.5,
+      "dimensions": "30x20x10",
+      "destination": "New York",
+      "rate": 15.99
+    }
+  },
+  {
+    "model": "logistics.customerservice",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "query": "When will my package arrive?",
+      "response": "Your package is scheduled to arrive on September 15th.",
+      "created_at": "2024-09-13T11:00:00Z",
+      "status": "Resolved"
+    }
+  },
+  {
+    "model": "logistics.coupon",
+    "pk": 1,
+    "fields": {
+      "code": "SUMMER2024",
+      "discount": 10.0,
+      "expiry_date": "2024-12-31T23:59:59Z",
+      "user": null
+    }
+  },
+  {
+    "model": "logistics.membership",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "level": "Gold",
+      "points": 1000,
+      "benefits": "Free shipping, Priority customer service"
+    }
+  },
+  {
+    "model": "logistics.report",
+    "pk": 1,
+    "fields": {
+      "report_type": "Monthly Sales",
+      "data": {"total_sales": 15000, "top_product": "Electronics"},
+      "generated_at": "2024-09-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "logistics.warehouseentry",
+    "pk": 1,
+    "fields": {
+      "package": 1,
+      "entry_date": "2024-09-10T08:00:00Z",
+      "weight": 2.5,
+      "dimensions": "30x20x10",
+      "photos": null,
+      "notes": "Received in good condition",
+      "warehouse_location": "A1-B2-C3"
+    }
+  },
+  {
+    "model": "logistics.warehouseexit",
+    "pk": 1,
+    "fields": {
+      "order": 1,
+      "exit_date": "2024-09-13T14:00:00Z",
+      "packages": [1],
+      "shipping_method": "Express",
+      "total_weight": 2.5,
+      "total_dimensions": "30x20x10",
+      "notes": "Packed securely for shipping"
+    }
+  }
+]
