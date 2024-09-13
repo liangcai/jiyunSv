@@ -164,3 +164,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ],
 }
+
+APPEND_SLASH = True
